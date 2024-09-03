@@ -13,4 +13,5 @@ base.Base.metadata.create_all(bind=engine)
 def read_root():
     return {"Hello": "World"}
 
-app.include_router(funcionario_router)
+# Inclui as rotas do funcionário
+app.include_router(funcionario_router, prefix="/api", tags=["Funcionarios"])

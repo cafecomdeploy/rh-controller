@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, String, Date
+from sqlalchemy import Column, Integer, String, Date, ForeignKey
+from sqlalchemy.orm import relationship
 from app.database.config import Base
 from pydantic import BaseModel
 from datetime import date
@@ -8,7 +9,10 @@ class Funcionario(Base):
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     nome = Column(String, index=True)
     datanascimento= Column(Date)
-    cod_cargo = Column(Integer)
+    cargo_id = Column(Integer, ForeignKey('cargos.id'))
+
+
+    cargo = relationship("Cargo", back_populates="funcionarios")
 
 class FuncionarioResponse(BaseModel):
     id: int

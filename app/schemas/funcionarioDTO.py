@@ -5,7 +5,7 @@ class FuncionarioBase(BaseModel):
     id: int
     nome: str
     datanascimento: date
-    cod_cargo: int
+    cargo_id: int
 
 class FuncionarioCreate(FuncionarioBase):
     pass

@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from typing import Optional, List
+from app.models.funcionario import FuncionarioResponse
 
 class CargoBase(BaseModel):
     nome: str
@@ -13,7 +14,7 @@ class CargoUpdate(CargoBase):
 
 class CargoResponse(CargoBase):
     id: int
-    funcionarios: List[str] = []
+    funcionarios: List[FuncionarioResponse] = []
 
     class Config:
         from_attributes = True
